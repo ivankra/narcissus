@@ -19,7 +19,7 @@ else:
 narc_shell = os.path.join(SPIDERMONKEY_DIR, "shell.js")
 
 def handler(signum, frame):
-    print ''
+    print('')
     # the exit code produced by ./js on SIGINT
     sys.exit(130)
 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
     try:
         retcode = Popen(argv).wait()
     except OSError as e:
-        if e.errno is 2 and options.js_interactive:
+        if e.errno == 2 and options.js_interactive:
             retcode = Popen(argv[1:]).wait()
 
-    exit(retcode)
+    sys.exit(retcode)
